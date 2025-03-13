@@ -139,7 +139,7 @@
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label"> سعر الاشتراك</label>
                                     <input class="form-control" type="number"
-                                        value="{{ $member->price }}" name="price">
+                                        value="{{ $member->subscriptions->first()->price }}" name="price">
                                     @error('price')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror

@@ -87,20 +87,29 @@ class SuperAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // التحقق من صحة البيانات
         $data = $request->validate([
-            'name' => 'required',
-            'phoneNumber' => 'required',
-            'coachName' => 'nullable',
-            'level' => 'nullable',
-            'typeOfTrain' => 'nullable',
-            'location' => 'nullable',
-            'price' => 'required',
+            'name' => 'required|string',
+            'phoneNumber' => 'required|string|unique:members,phoneNumber,' . $id,
+            'coachName' => 'required|string',
+            'level' => 'required|string',
+            'typeOfTrain' => 'required|string',
+            'location' => 'required|string',
+            'price' => 'required|numeric',
         ]);
+    
         $member = Member::findOrFail($id);
+    
         $member->update($data);
-        return redirect()->route('superAdmin.index')->with('success', 'تمت تعديل المتدرب بنجاح');
-
+    
+        Subscription::updateOrCreate(
+            ['member_id' => $member->id], 
+            ['price' => $request->price]  
+        );
+    
+        return redirect()->route('superAdmin.index')->with('success', 'تم تعديل المتدرب بنجاح');
     }
+    
 
 
     public function destroy($id)
