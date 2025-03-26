@@ -76,7 +76,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() == 'admin.create' ? 'active' : '' }} "
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.return' ? 'active' : '' }} "
                         href="{{ route('admin.return') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">

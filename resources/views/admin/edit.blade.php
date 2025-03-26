@@ -1,4 +1,4 @@
-@extends('superAdmin.layouts.layout')
+@extends('admin.layouts.layout')
 
 @section('content')
     <main class="main-content position-relative border-radius-lg overflow-hidden">
@@ -128,8 +128,11 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label"> مقر التدريب </label>
-                                    <input class="form-control" type="text"
-                                        value="{{ $member->location }}" name="location">
+                                    <select name="location" id="location" class=" form-select text-start">
+                                        <option value="{{$member->location}}"> {{$member->location}}</option>
+                                        <option value="لم يحدد بعد"> لم يحدد بعد</option>
+                                        <option value="مركز شباب السلام"> مركز شباب السلام</option>
+                                    </select>
                                     @error('location')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror

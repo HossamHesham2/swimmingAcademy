@@ -115,11 +115,11 @@
                                 <div class="form-group ">
                                     <label for="example-text-input" class="form-control-label">نوع التدريب </label>
 
-                                        <select name="typeOfTrain" id="typeOfTrain" class=" form-select text-start">
-                                            <option value="لم يحدد بعد"> لم يحدد بعد</option>
-                                            <option value="خاص"> خاص</option>
-                                            <option value="مجموعة"> مجموعة</option>
-                                        </select>
+                                    <select name="typeOfTrain" id="typeOfTrain" class=" form-select text-start">
+                                        <option value="لم يحدد بعد"> لم يحدد بعد</option>
+                                        <option value="خاص"> خاص</option>
+                                        <option value="مجموعة"> مجموعة</option>
+                                    </select>
                                     @error('typeOfTrain')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -128,8 +128,11 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label"> مقر التدريب </label>
-                                    <input class="form-control" type="text" value=""
-                                        value="{{ old('location') }}" name="location">
+                                    <select name="location" id="location" class=" form-select text-start">
+                                        <option value="لم يحدد بعد"> لم يحدد بعد</option>
+                                        <option value="مركز شباب السلام"> مركز شباب السلام</option>
+                                    </select>
+
                                     @error('location')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror

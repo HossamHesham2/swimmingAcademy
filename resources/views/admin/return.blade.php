@@ -1,4 +1,4 @@
-@extends('superAdmin.layouts.layout')
+@extends('admin.layouts.layout')
 @push('css')
     <link rel="stylesheet" href="{{ asset('assets/css/buttons.dataTables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/jquery.dataTables.min.css') }}">
